@@ -1,0 +1,300 @@
+.map__image{
+    z-index: 5;
+    width:50%;
+    margin-left: 5px;
+    position: absolute;
+}
+
+.map__image path{
+   /*fill: #4aced2;*/
+   stroke: #FFF;
+   stroke-width: 1px;
+   transition: fill 0.3s;
+}
+.map__image a.active path{
+    fill: #f16e00;
+ }
+
+.map__list{
+    width:50%;
+    float: right;
+}
+
+.map__list a{
+    color: #000000;
+}
+
+.map__list a.is-active{
+    color:  #f16e00;
+}
+
+.labbels{
+  margin-top: -70px;
+  margin-left: 20px;
+  
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  color: #3F3F3F;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2196F3;
+}
+.map svg {
+  fill: #1F8DE4;
+}
+
+.marker {
+  position: absolute;
+  z-index: 5;
+  font-size: 0;
+  cursor: pointer;
+  -webkit-transform: perspective(600px) rotateY(0deg);
+          transform: perspective(600px) rotateY(0deg);
+  opacity: 1;
+  transition: all .5s ease .4s;
+}
+.marker.inactive {
+  -webkit-transform: perspective(600px) rotateY(-90deg);
+          transform: perspective(600px) rotateY(-90deg);
+  opacity: 0;
+  transition: all .5s ease;
+}
+.marker svg {
+  fill: #FFCC30;
+  -webkit-animation: hovering 1s ease-in-out infinite alternate;
+          animation: hovering 1s ease-in-out infinite alternate;
+}
+.marker .shadow{
+  width: 10px;
+  height: 4px;
+  background: #1B7AC7;
+  border-radius: 50%;
+  margin: 0px auto 0 auto;
+  -webkit-animation: shadow 1s ease-in-out infinite alternate;
+          animation: shadow 1s ease-in-out infinite alternate;
+
+}
+
+#FR-01, .marker, .shadow{
+    display: block;
+}
+
+
+.card {
+  position: absolute;
+  z-index: 10;
+  width: 240px;
+  height: 190px;
+  top: 105px;
+  left: 80px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 4px 8px 12px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  -webkit-transform: perspective(600px) rotateY(90deg);
+          transform: perspective(600px) rotateY(90deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: all .5s ease;
+}
+.card.active {
+  -webkit-transform: perspective(600px) rotateY(0deg);
+          transform: perspective(600px) rotateY(0deg);
+  opacity: 1;
+  pointer-events: all;
+  transition: all .5s ease .4s;
+}
+.card img {
+  margin-bottom: 18px;
+}
+.card p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  margin: 2px 0;
+}
+.card p.name {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 600;
+}
+.card .actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+}
+.card .actions a {
+  float: left;
+  width: 50%;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  color: #1F8DE4;
+  font-weight: 400;
+  font-size: 12px;
+}
+.card .actions .divide {
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  left: 50%;
+  top: 10px;
+  background: #91CCFB;
+}
+
+@-webkit-keyframes hovering {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, -5px, 0);
+            transform: translate3d(0, -5px, 0);
+  }
+}
+
+@keyframes hovering {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, -5px, 0);
+            transform: translate3d(0, -5px, 0);
+  }
+}
+@-webkit-keyframes shadow {
+  from {
+    -webkit-transform: scale(1) translate3d(0, 0, 0);
+            transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    -webkit-transform: scale(1.25) translate3d(0, 0, 0);
+            transform: scale(1.25) translate3d(0, 0, 0);
+  }
+}
+@keyframes shadow {
+  from {
+    -webkit-transform: scale(1) translate3d(0, 0, 0);
+            transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    -webkit-transform: scale(1.25) translate3d(0, 0, 0);
+            transform: scale(1.25) translate3d(0, 0, 0);
+  }
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+  }
+  .circle {
+    fill: transparent;
+    stroke: #ff4c4c;
+    stroke-width: 20;
+    stroke-dasharray: 534;
+    stroke-linecap: round; 
+    -webkit-transition: stroke-dashoffset 5s;
+  }
+  .bgcircle {
+    fill: transparent;
+    stroke: black;
+    stroke-width: 20;
+  }
+  .svg{
+    -webkit-transform:translate(10px, 10px)scale(1); /* change the size by adjusting scale, move by adjusting translate. Moves everything including font */
+  }
+  .text{
+    font-size: 50px;
+    font-family: 'helvetica';
+    fill:#ff4c4c;
+  }
+  
+  
+  /* html stuff */
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #enter{
+    background-color: #ff4c4c;
+    padding: 5px;
+    width:180px;
+    font-family:'helvetica';
+    margin-left:10px;
+    margin-top:10px;
+    text-align:center;
+    color:white;
+  }
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.progress {
+    position: relative;   
+    height: 160px;
+    width: 160px;
+    cursor: pointer;
+    top: 25px;
+    left: 43px;
+    margin: -40px 0 0 -40px;
+    background-color: inherit;
+}
+
+.progress-circle {
+  transform: rotate(-90deg);
+    margin-top: -40px;
+    position: relative;
+}
+
+.progress-circle-back {
+	fill: none; 
+	stroke: #D2D2D2;
+	stroke-width:10px;
+}
+
+.progress-circle-prog {
+	fill: none; 
+	stroke: #f16e00;
+	stroke-width: 10px;  
+	stroke-dasharray: 0 999;    
+	stroke-dashoffset: 0px;
+    transition: stroke-dasharray 0.7s linear 0s;
+}
+
+.progress-text {
+	width: 100%;
+	position: absolute;
+	top: 60px;
+	text-align: center;
+	font-size: 2em;
+}

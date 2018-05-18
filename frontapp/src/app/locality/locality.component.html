@@ -1,0 +1,29 @@
+
+
+
+<div class="row" style="margin-top: 50px;margin-left:30px">
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+      <input type="text"
+             placeholder="Sélectionner votre intervalle de temps"
+             class="form-control"
+             #drp="bsDaterangepicker"
+             bsDaterangepicker
+             [minDate]="minDate"
+             [maxDate]="maxDate"
+             [(bsValue)]="bsValue" 
+             (bsValueChange)="onValueChange($event)">
+    </div>
+
+   
+
+    </div>
+    
+    <map-departements [percentages]="percentages"  [dephovered]="dephovered" (departmentChange)='display_tab_googlemaps($event)' (namedepartmentChange)='changename_dep($event)'></map-departements>
+   
+
+    <div class="col-md-6">
+        <locality-list [docs]="docs" [name_dep]="name_dep" [numb]="numb"></locality-list>
+        </div>
+    
+       
+<div id="map" ></div>

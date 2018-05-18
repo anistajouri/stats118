@@ -1,0 +1,78 @@
+.table{
+   > thead > tr > th{
+       border-bottom-width: 1px;
+       font-size: $font-size-h5;
+       font-weight: $font-weight-light;
+   }
+   tbody{
+    height:380px;
+    overflow-y:auto;
+    width:100%;
+    }
+   
+    thead, tbody{
+        display: block;
+      }
+     
+   
+
+   
+
+
+  .style::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(170,170,170,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.style::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.style::-webkit-scrollbar-thumb
+{
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 0 6px rgba(170,170,170,0.3);
+    background-color: rgba(170,170,170,0.3);
+}
+
+   .radio,
+   .checkbox{
+       margin-top: 0;
+       margin-bottom: 0;
+       margin-left: 10px;
+       padding: 0;
+       width: 15px;
+
+       .icons{
+           position: relative;
+       }
+   }
+   > thead > tr > th,
+   > tbody > tr > th,
+   > tfoot > tr > th,
+   > thead > tr > td,
+   > tbody > tr > td,
+   > tfoot > tr > td{
+       padding: 12px 8px;
+       vertical-align: middle;
+   }
+  
+
+   
+
+   .td-actions{
+        display: flex;
+
+        .btn{
+           margin: 0px;
+           padding: 5px;
+        }
+    }
+    > tbody > tr {
+        position: relative;
+    }
+}

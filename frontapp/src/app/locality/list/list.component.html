@@ -1,0 +1,30 @@
+        <div class="card card-plain">
+            <div class="card-header" data-background-color="orange">
+                <h4 class="title">Les localités recherchées à {{name_dep}}</h4>
+                <p class="category">{{numb}} localités</p>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table table-hover" >
+                    <thead>
+                        <tr>
+                            <th class="col-xs-3">Code</th>
+                            <th class="col-xs-3">Nom</th>
+                            <th class="col-xs-3">Région</th>
+                            <th class="col-xs-3">Date</th>
+                            <th class="col-xs-3">Heure</th>
+                        </tr>
+                    </thead>
+                    <tbody class="style">
+                            <tr *ngFor="let doc of docs">
+                                    <td class="col-xs-3">{{doc.locality}}</td>
+                                    <td  class="col-xs-3">{{doc.name_loc}}</td>
+                                    <td class="col-xs-3">{{doc.name_reg}}</td>
+                                    <td class="col-xs-3">{{doc.timestamp |date }}</td>
+                                    <td class="col-xs-3">{{doc.timestamp  |date:'shortTime'}}</td>
+                                  </tr>
+                       
+
+                    </tbody>
+                </table>
+            </div>
+        </div>

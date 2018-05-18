@@ -1,0 +1,9 @@
+<div style="display: block; z-index:2; width: 100%;" > 
+  <canvas baseChart
+          [options]="{responsive :false}"
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>

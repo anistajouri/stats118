@@ -1,0 +1,17 @@
+<div class="row" style="margin-top: 50px;margin-left:30px">
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+      <input type="text"
+             placeholder="Sélectionner votre intervalle de temps"
+             class="form-control"
+             #drp="bsDaterangepicker"
+             bsDaterangepicker
+             [minDate]="minDate"
+             [maxDate]="maxDate"
+             [(bsValue)]="bsValue" 
+             (bsValueChange)="onValueChange($event)">
+    </div>
+   
+  </div>
+   
+  <div id="map"></div>
+                         
