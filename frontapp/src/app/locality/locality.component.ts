@@ -83,7 +83,7 @@ export class LocalityComponent implements OnInit {
     this.name_dep = name_dep;
   }
   
-  loadAlllocality_df(date_debut, date_fin, dep_clicked) {
+  /*loadAlllocality_df(date_debut, date_fin, dep_clicked) {
     const baseContext = this;
      this.localityService.getAlllocality_df(date_debut, date_fin).subscribe(data => {
      
@@ -117,7 +117,7 @@ export class LocalityComponent implements OnInit {
     });
     console.log("mes points "+JSON.stringify(this.points));
     
-  }
+  }*/
 
   loadPercentagePerDepartment_df(date_debut, date_fin) {
     const baseContext = this;
@@ -139,7 +139,7 @@ export class LocalityComponent implements OnInit {
 
   display_tab_googlemaps(dep_clicked,name_dep){
     this.docs = new Array<any>();
-    this.loadAlllocality_df(this.date_d, this.date_f, dep_clicked);
+   // this.loadAlllocality_df(this.date_d, this.date_f, dep_clicked);
     console.log("dep_clicked: "+ dep_clicked);
     this.name_dep = name_dep;
     console.log("44444444444"+ this.name_dep)

@@ -1,0 +1,198 @@
+<div class="row" style="margin-top: 50px;margin-left:30px">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <input type="text"
+                 placeholder="Sélectionner une date"
+                 class="form-control"
+                 #drp="bsDatepicker"
+                 bsDatepicker
+                 [minDate]="minDate"
+                 [maxDate]="maxDate"
+                 [(bsValue)]="bsValue" value="{{bsValue | date: 'dd/MM/yyyy'}}" 
+                 (bsValueChange)="onValueChange($event)">
+        </div>
+
+    </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+              <div class="card card-nav-tabs" >
+                  <div class="card-header" data-background-color="orange">
+                      <div class="nav-tabs-navigation">
+                          <div class="nav-tabs-wrapper">
+                              <span class="nav-tabs-title">Suivi des noeuds:</span>
+                              <ul class="nav nav-tabs" data-tabs="tabs">
+                                  <li class="active">
+                                      <a href="#nombre" data-toggle="tab">
+                                          <i class="material-icons">bar_chart</i>
+                                          Nombre de recherches
+                                      <div class="ripple-container"></div></a>
+                                  </li>
+                                  <li class="">
+                                      <a href="#time" data-toggle="tab">
+                                          <i class="material-icons">access_time</i>
+                                          Temps meyen de réponse
+                                      <div class="ripple-container"></div></a>
+                                  </li>
+                                  <li class="">
+                                      <a href="#status" data-toggle="tab">
+                                          <i class="material-icons">pie_chart</i>
+                                          Statut de retour
+                                      <div class="ripple-container"></div></a>
+                                  </li>
+                                 
+      
+                          
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <div class="card-content">
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="nombre">
+                             
+
+
+
+                            
+      
+                              <div class="col-md-12">
+                                    <div class="card card-stats" >
+                                            <div class="card-header" data-background-color="orange">
+                                                <i class="material-icons">pie_chart</i>
+                                            </div>
+                                            <div class="card-content" >
+                                                <p class="category">Nombre de recherches</p>
+                                                <h3 class="title"><small>{{clusters.sum}}</small></h3>
+                                               <div class="centr">
+                                                <app-piechart   [pieChartLabels]="pieChartLabels" [pieChartData]="pieChartData"></app-piechart>
+                                                    </div>
+
+                                                
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="stats" style="float:right">
+                                                        <button type="button" class="btn btn-warning btn-round mybutton" style="float:right" (click)="pdf()"  ><i class="fas fa-file-pdf"></i> PDF</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="card card-stats" >
+                                            <div class="card-header" data-background-color="orange">
+                                                <i class="material-icons">view_week</i>
+                                            </div>
+                                            <div class="card-content">
+                                                <p class="category">Résultats comparés</p>
+                                                <h3 class="title"><small>semaine dernière/cette semaine</small></h3>
+
+                                                <app-barchart [barChartLabels]="barChartLabels" [barChartData]="barChartData"></app-barchart>
+                                              
+                                                
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="stats" style="float:right">
+                                                        <button type="button" class="btn btn-warning btn-round mybutton" style="float:right" (click)="pdf()"  ><i class="fas fa-file-pdf"></i> PDF</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                               
+                                 
+            
+            
+                              </div>
+                       
+      
+      
+      
+      
+                          </div>
+                          <div class="tab-pane" id="time">
+                              <div class="col-md-12">
+                                
+                                  
+                                    <div class="row" >
+                               
+
+                                    <div class="col-lg-4 col-md-6 col-sm-6" *ngFor='let key of timeskeys'>
+                                        <div class="card card-stats" >
+                                            <div class="card-header" data-background-color="orange">
+                                                {{key}}
+                                            </div>
+                                            <div class="card-content">
+                                                <p class="category">Temps moyen de réponse</p>
+                                                <h3 *ngIf="times != null" class="title">{{times[key]}}</h3>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+  
+                                   
+                                   
+                    
+                                </div>
+            
+                              </div>
+                              </div>
+                      
+                          <div class="tab-pane" id="status">
+                                <div class="col-md-12">
+                                
+                                  
+                                        <div class="row">
+                                   
+    
+                                        <div class="col-lg-4 col-md-6 col-sm-6" *ngFor='let key of statuskeys'>
+                                            <div class="card card-stats" >
+                                                <div class="card-header" data-background-color="orange">
+                                                    {{key}}
+                                                </div>
+                                                <div class="card-content">
+                                                        <p class="category">Code status</p>
+                                                        <h3 class="title">OK/KO</h3>
+                                                        <div style="display: block">
+                                                            <canvas baseChart
+                                                                        [data]="status[key]"
+                                                                        [labels]="labels"
+                                                                        [chartType]="doughnutChartType"
+                                                                        (chartHover)="chartHovered($event)"
+                                                                        (chartClick)="chartClicked($event)"
+                                                                        [colors]="doughnutChartColors"></canvas>
+                                                          </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                       
+                                        
+                                       
+                        
+                                    </div>
+                
+                
+                                  </div>
+                          </div>
+                          <div class="tab-pane" id="crosslinking">
+                              <div class="col-md-6">
+                                  <h5>Semaine dernière (%)</h5>
+                                  
+            
+                                 
+            
+            
+                              </div>
+                              <div class="col-md-6">
+                                  <h5>Cette semaine (%)</h5>
+            
+            
+            
+            
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      
+          
+      </div>
+
+      

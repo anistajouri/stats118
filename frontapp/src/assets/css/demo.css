@@ -35,8 +35,11 @@ my-app .main-panel .main-content .card{
     margin-left: 20px;
     height: calc(100% - 60px);
     margin-top: 10px;
-    z-index: 2;
+    z-index: 5;
 }
+
+
+
 
 #map_small{
     position:relative;
@@ -45,6 +48,7 @@ my-app .main-panel .main-content .card{
     margin-top: 10px;
 
 }
+
 
 .places-buttons .btn{
     margin-bottom: 30px

@@ -17,12 +17,20 @@ export class LocalityService extends GenericService {
    
   }
 
-  
-
-
-  getAlllocality_df(date_debut, date_fin) {
+  getAlllocality_df(dep,date_debut, date_fin) {
     // this.headers.set("Authorization", "Bearer " + this.storageService.read("token"));
-     const url = Config.baseUrl + "localites/" + date_debut + "/" +  date_fin;
+     const url = Config.baseUrl + "localites/" + dep + "/"+ date_debut + "/" +  date_fin;
+ 
+     return this.http.get(url, {
+       headers: this.headers
+     })
+       .map(res => res.json())
+       .catch(this.handleErrors);
+   }
+
+   getlocalityfordep_df(date_debut, date_fin,dep) {
+    // this.headers.set("Authorization", "Bearer " + this.storageService.read("token"));
+     const url = Config.baseUrl + "localitesfordep/"  + date_debut + "/" +  date_fin + "/" + dep;
  
      return this.http.get(url, {
        headers: this.headers

@@ -7,23 +7,38 @@ import { MapdepartementsComponent } from 'app/mycharts/mapdepartements/mapdepart
 import { PiechartComponent } from 'app/mycharts/piechart/piechart.component';
 import { ChartsModule } from 'ng2-charts';
 import { BarchartComponent } from 'app/mycharts/barchart/barchart.component';
+import { Dialogmap } from 'app/mycharts/dialogmap/dialogmap.component';
+import { MatDialogModule } from '@angular/material';
+import { PiechartdialogComponent } from 'app/mycharts/piechartdialog/piechartdialog.component';
+import { DoughnutchartComponent } from 'app/mycharts/doughnutchart/doughnutchart.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     NgCircleProgressModule.forRoot({ }),
-    ChartsModule
+    ChartsModule,
+    MatDialogModule,
+    
   ],
   declarations: [
     MapdepartementsComponent,
     PiechartComponent,
-    BarchartComponent
+    BarchartComponent,
+    Dialogmap,
+    PiechartdialogComponent,
+    DoughnutchartComponent
   ],
   exports: [
     MapdepartementsComponent,
     PiechartComponent,
-    BarchartComponent
-  ]
+    BarchartComponent,
+    Dialogmap,
+    PiechartdialogComponent,
+    DoughnutchartComponent
+  ],
+    
+    entryComponents: [Dialogmap,PiechartComponent,PiechartdialogComponent]
+
 })
 export class MychartsModule { }

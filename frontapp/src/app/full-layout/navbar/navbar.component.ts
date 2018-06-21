@@ -1,6 +1,10 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { MatDialog } from '@angular/material';
+import { TeamlistComponent } from 'app/team/teamlist/teamlist.component';
+import { ResetPasswordComponent } from 'app/auth/resetpassword/resetpassword.component';
+
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +17,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef) {
+    constructor(location: Location,  private element: ElementRef,public dialog: MatDialog) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -64,4 +68,27 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
+
+    openDialogTeamList() {
+        const dialogRef = this.dialog.open(TeamlistComponent, {
+          hasBackdrop: true,
+          panelClass: 'my-full-screen-dialog',
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(`Dialog result: ${result}`);
+        });
+      }
+
+      resetPassword() {
+        const dialogRef = this.dialog.open(ResetPasswordComponent, {
+          hasBackdrop: true,
+          panelClass: 'not-full-screen-dialog',
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(`Dialog result: ${result}`);
+        });
+      }
+      
 }

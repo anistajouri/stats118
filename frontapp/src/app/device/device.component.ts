@@ -48,11 +48,11 @@ export class DeviceComponent implements OnInit {
     this.mobile_str = "mobile";
    
     
-    this.loadalldevicesperweek();
+   // this.loadalldevicesperweek();
     
   }
 
-  loadalldevicesperweek() {
+ /* loadalldevicesperweek() {
     this.pieChartData = [];
     this.pieChartLabels = [];
     
@@ -198,7 +198,7 @@ export class DeviceComponent implements OnInit {
 
     });
     
-  }
+  }*/
   
 
 }

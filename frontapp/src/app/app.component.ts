@@ -4,8 +4,7 @@ import 'rxjs/add/operator/filter';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
-
-
+import {MatDialog, MatDialogConfig} from '@angular/material';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

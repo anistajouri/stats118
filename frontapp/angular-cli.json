@@ -26,6 +26,7 @@
           "./assets/css/demo.css"
       ],
       "scripts": [
+       
           "../node_modules/jquery/dist/jquery.js",
           "../node_modules/bootstrap/dist/js/bootstrap.js",
           "../node_modules/bootstrap-material-design/dist/js/ripples.min.js",
@@ -34,9 +35,12 @@
           "../node_modules/moment/moment.js",
           "../node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
           "../node_modules/bootstrap-notify/bootstrap-notify.js",
-          "../node_modules/chartist/dist/chartist.js",
+          "../node_modules/jspdf/dist/jspdf.min.js",
+         
+          
           "./assets/js/marker.js",
-          "../node_modules/chart.js/dist/Chart.bundle.min.js"
+          "../node_modules/chart.js/dist/Chart.bundle.min.js",
+          "../node_modules/chart.js/src/chart.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

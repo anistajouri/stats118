@@ -1,0 +1,85 @@
+
+    
+            <div class="card-header" data-background-color="purple">
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title">Département: {{data.name_dep_clicked}} {{data.percent}}% des recherches</span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="active">
+                                <a href="#device" data-toggle="tab">
+                                    <i class="material-icons">pie_chart</i>
+                                    Device
+                                <div class="ripple-container"></div></a>
+                            </li>
+                            <li>
+                                <a href="#categ" data-toggle="tab">
+                                    <i class="material-icons">bar_chart</i>
+                                    Groupe de catégories
+                                <div class="ripple-container"></div></a>
+                            </li>
+                                    <li class="">
+                                            <a href="#liste" data-toggle="tab">
+                                                <i class="material-icons">list_alt</i>
+                                                Liste
+                                            <div class="ripple-container"></div></a>
+                                        </li>
+                           
+                            
+                            <li >
+                                <a href="#geo" data-toggle="tab">
+                                    <i class="material-icons">location_on</i>
+                                    Géolocaliser
+                                <div class="ripple-container"></div></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-content">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="geo">
+                           <div id="maploc"></div>
+                        </div>
+              
+                        
+                    <div class="tab-pane" id="liste" >
+                        <table class="table">
+                            
+<h2>Les {{data.type_rech}}s recherchés</h2>
+<button type="button" class="btn btn-warning btn-round mybutton" style="float:right" (click)="pdf()"  ><i class="fas fa-file-pdf"></i> PDF</button>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rehercher par nom..." title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:30%;">Nom</th>
+    <th style="width:10%;">Code</th>
+    <th style="width:20%;">Géocode</th>
+    <th style="width:20%;">requête</th>
+  </tr>
+  <tr *ngFor='let doc of docs'>
+    <td>{{doc.name_loc}}</td>
+    <td>{{doc.locality}}</td>
+    <td>{{doc.geocode}}</td>
+    <td>{{doc.request}}</td>
+
+  </tr>
+
+</table>
+
+
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="categ">
+                        <app-barchart [barChartLabels]="barChartLabels" [barChartData]="barChartData"></app-barchart>
+                    </div>
+
+
+                    <div class="tab-pane" id="device">
+              <app-piechart   [pieChartLabels]="pieChartLabels" [pieChartData]="pieChartData"></app-piechart>
+   </div>
+                </div>
+            </div>
+      
+   

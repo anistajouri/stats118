@@ -30,7 +30,7 @@ export class ProximityComponent implements OnInit {
 
  
 
-  formatDate(value: String){
+formatDate(value: String){
     var res = value.split("/", 3);
     var res_y = res[2].split(" ");
     console.log("dd: "+res[0]);
@@ -90,7 +90,7 @@ export class ProximityComponent implements OnInit {
   }
 
   initiate_map(docs: Array<any>)
-  {
+  { console.log("le nombre de docs: "+ docs.length)
     const centreFrance = new google.maps.LatLng(47.069496, 2.417247);
     const mapOptions = {
         zoom: 6,
@@ -133,9 +133,11 @@ export class ProximityComponent implements OnInit {
       var name_loc = docs[i]['name_loc'];
       var code_loc = docs[i]['locality'];
       const myLatlng0 = new google.maps.LatLng(lat,long);
+      var image = '../../assets/img/marker.png';
       const Marker0 = new google.maps.Marker({
           position: myLatlng0,
           map: map,
+          icon: image
          
           
       });

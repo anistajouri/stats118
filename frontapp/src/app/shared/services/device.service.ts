@@ -17,9 +17,20 @@ export class DeviceService extends GenericService {
    
   }
 
-  getalldevicesperweek() {
+  getalldevicesperdept(type,dep,date_deb, date_fin) {
     // this.headers.set("Authorization", "Bearer " + this.storageService.read("token"));
-     const url = Config.baseUrl + "device";
+     const url = Config.baseUrl + "devicepourcentagesperdep/"+ type + "/" + dep + "/" + date_deb + "/" + date_fin
+ 
+     return this.http.get(url, {
+       headers: this.headers
+     })
+       .map(res => res.json())
+       .catch(this.handleErrors);
+   }
+
+   getallgrpcategperdept(type,dep,date_deb, date_fin) {
+    // this.headers.set("Authorization", "Bearer " + this.storageService.read("token"));
+     const url = Config.baseUrl + "grpcategperdep/"+ type + "/" + dep + "/" + date_deb + "/" + date_fin
  
      return this.http.get(url, {
        headers: this.headers

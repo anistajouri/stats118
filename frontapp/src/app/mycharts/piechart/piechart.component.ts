@@ -27,25 +27,32 @@ export class PiechartComponent implements OnInit,OnChanges {
     
   }
 
+  private doughnutChartColors: any[] = [{ backgroundColor: ["#64daed", "#92d17c", "#cccccc", "#f16e00","#a4add3","#005aff","#00ffa5","#ffd000","#ffc04d"] }];
+
 
 
   ngOnInit() {
-    
+    //this.pieChartLabels = ['mobile', 'desktop', 'unknown'];
+   // this.pieChartData = [200,500,600];
+   
   }
 
-  ngOnChanges(changes: SimpleChanges){
-    this.pieChartLabels =[];
-    this.pieChartLabels = ['mobile', 'desktop', 'unknown'];
-    this.pieChartData = [];
-    this.pieChartData = changes["pieChartData"]["currentValue"];
+ 
 
+  ngOnChanges(changes: SimpleChanges){
+    console.log("here from ngchanges pie chart");
+    this.pieChartLabels = new Array();
+    this.pieChartData = new Array();
+    this.pieChartLabels = changes["pieChartLabels"]["currentValue"];
+    this.pieChartData = changes["pieChartData"]["currentValue"];
     this.baseChart.labels= this.pieChartLabels;
     this.baseChart.data= this.pieChartData;
-
+   // this.setpiedata(this.pieChartLabels, this.pieChartData);
     this.baseChart.ngOnChanges({} as SimpleChanges);
 
   
   }
+
 
   public chartClicked(e:any):void {
     console.log(e);

@@ -1,0 +1,18 @@
+
+
+<div class="card card-stats" >
+    <div class="card-header" data-background-color="orange">
+        <i class="material-icons">pie_chart</i>
+    </div>
+    <div class="card-content">
+        <p class="category">{{data.key}}</p>
+        <h3 class="title">{{data.percent}}<small>%</small></h3>
+        <app-piechart   [pieChartLabels]="pieChartLabels" [pieChartData]="pieChartData"></app-piechart>
+                                                 
+    </div>
+    <div class="card-footer">
+        <div class="stats">
+            <i class="material-icons">storage</i> Répartition des rechcheres sur les 5 noeuds
+        </div>
+    </div>
+</div>

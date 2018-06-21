@@ -5,6 +5,8 @@ import {RouterModule} from '@angular/router';
 import { AUTH_ROUTES } from './auth.routing';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { MatDialogModule } from '@angular/material';
+import { ResetPasswordComponent } from 'app/auth/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -12,10 +14,15 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(AUTH_ROUTES)
+    RouterModule.forChild(AUTH_ROUTES),
+    MatDialogModule,
   ],
-  declarations: [RegistrationComponent, LoginComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [RegistrationComponent,
+     LoginComponent,
+     ResetPasswordComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [ResetPasswordComponent]
 })
 
 export class AuthModule { }

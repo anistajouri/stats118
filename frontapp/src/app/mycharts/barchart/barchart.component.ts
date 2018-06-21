@@ -10,7 +10,7 @@ import { BaseChartDirective } from 'ng2-charts/ng2-charts';
   templateUrl: './barchart.component.html',
   styleUrls: ['./barchart.component.css']
 })
-export class BarchartComponent implements OnInit,OnChanges {
+export class BarchartComponent implements OnInit {
  
    // Bar
    public barChartOptions:any = {
@@ -29,6 +29,24 @@ export class BarchartComponent implements OnInit,OnChanges {
   
    
 
+   public chartColors: Array<any> = [
+    { // first color
+      backgroundColor: '#cccccc',
+      borderColor: '#cccccc',
+      pointBackgroundColor: 'rgba(225,10,24,0.2)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+    },
+    { // second color
+      backgroundColor: '#f16e00',
+      borderColor: '#f16e00',
+      pointBackgroundColor: 'rgba(225,10,24,0.2)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+    }];
+
   constructor() { 
     
   }
@@ -36,10 +54,11 @@ export class BarchartComponent implements OnInit,OnChanges {
 
 
   ngOnInit() {
-    
+    //this.barChartLabels =  ["op14wdb1","op14wdb2","op14wdb3","op14wdb4","op14wdb5"];
+   // this.barChartData =  [{data:[500,600,300,100,200,350], label: 'nombre de recherche'}];
   }
 
-  ngOnChanges(changes: SimpleChanges){
+ ngOnChanges(changes: SimpleChanges){
     this.barChartLabels =[];
     this.barChartData = [];
     this.barChartLabels = changes["barChartLabels"]["currentValue"];
@@ -50,7 +69,7 @@ export class BarchartComponent implements OnInit,OnChanges {
 
     this.baseChart.ngOnChanges({} as SimpleChanges);
 
-  
+
   }
  
   // events

@@ -1,0 +1,50 @@
+<div class="row" style="margin-top: 50px;margin-left:30px">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <input type="text"
+                 placeholder="Sélectionner une date"
+                 class="form-control"
+                 #drp="bsDatepicker"
+                 bsDatepicker
+                 [minDate]="minDate"
+                 [maxDate]="maxDate"
+                 [(bsValue)]="bsValue" value="{{bsValue | date: 'dd/MM/yyyy'}}" 
+                 (bsValueChange)="onValueChange($event)">
+        </div>
+
+    </div>
+   
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+            <div class="card-header" data-background-color="orange">
+                <h4 class="title">Profiles clients de l'API 118712</h4>
+                <p class="category">Reporting des recherches pour le {{bsValue |  date: 'dd/MM/yyyy' }}</p>
+            </div>
+            <div class="card-content table-responsive">
+               
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rehercher par profile..." title="Tapez un nom de profile">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Profile</th>
+    <th style="width:40%;">Pourcentage (%)</th>
+  </tr>
+ 
+  <tr *ngFor="let key of keys; let i = index" (click)="nodesforprofile(key,i)" [class.active]="i == selectedRow">
+        <td>{{key}} </td> <td> {{ profiles[key] }} </td>
+      </tr>
+ 
+
+</table>
+            </div>
+        </div>
+    </div>
+  
+
+</div>
+  
+</div>
+  

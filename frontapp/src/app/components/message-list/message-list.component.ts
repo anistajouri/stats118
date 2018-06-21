@@ -10,7 +10,7 @@ import { MessageItemComponent } from 'app/components/message-item/message-item.c
 export class MessageListComponent implements OnInit, AfterViewInit {
 
   @Input('messages')
-  private messages: Message[];
+  public messages: Message[];
 
   @ViewChild('chatlist', { read: ElementRef }) chatList: ElementRef;
   @ViewChildren(MessageItemComponent, { read: ElementRef }) chatItems: QueryList<MessageItemComponent>;
@@ -19,12 +19,12 @@ export class MessageListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.chatItems.changes.subscribe(elements => {
-      // console.log('messsage list changed: ' + this.messages.length);
+       console.log('messsage list changed: ' + this.messages.length);
       this.scrollToBottom();
     });
   }
 
-  private scrollToBottom(): void {
+  public scrollToBottom(): void {
     try {
       this.chatList.nativeElement.scrollTop = this.chatList.nativeElement.scrollHeight;
     }

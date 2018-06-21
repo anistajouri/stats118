@@ -19,10 +19,9 @@ export class ProximityService extends GenericService {
 
   
 
-
-  getAlllocality_df(date_debut, date_fin) {
+  getAlllocality_df(dep,date_debut, date_fin) {
     // this.headers.set("Authorization", "Bearer " + this.storageService.read("token"));
-     const url = Config.baseUrl + "localites/" + date_debut + "/" +  date_fin;
+     const url = Config.baseUrl + "proximites/" + dep + "/"+ date_debut + "/" +  date_fin;
  
      return this.http.get(url, {
        headers: this.headers
@@ -33,7 +32,7 @@ export class ProximityService extends GenericService {
 
    getPercentagePerDepartment_df(date_debut, date_fin) {
     // this.headers.set("Authorization", "Bearer " + this.storageService.read("token"));
-     const url = Config.baseUrl + "countylocality/" + date_debut + "/" +  date_fin;
+     const url = Config.baseUrl + "countyproximity/" + date_debut + "/" +  date_fin;
  
      return this.http.get(url, {
        headers: this.headers

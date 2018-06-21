@@ -8,12 +8,13 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/localite', title: 'Recherches de localité',  icon: 'location_on', class: '' },
-    { path: '/proximite', title: 'Recherches de proximité',  icon:'explore', class: '' },
-    { path: '/device', title: 'Recherches desktop/mobile',  icon:'important_devices', class: '' },
-    { path: '/inverse', title: 'Recherches inverses',  icon:'call', class: '' },
-    { path: '/profile', title: 'Profiles',  icon:'assignment_ind', class: '' },{ path: '/bilans', title: 'Rapports de recherches',  icon:'assignment', class: '' },
-    { path: '/statbot', title: '118712StatBot',  icon:'chat', class: 'active-pro' },
+    { path: '/cluster', title: 'Cluster',  icon: 'storage', class: '' },
+    { path: '/profiles', title: 'Profiles Clients',  icon:'assignment_ind', class: '' },
+    { path: '/departproxi', title: 'reporting/département',  icon:'location_on', class: '' },
+    //{ path: '/device', title: 'Recherches desktop/mobile',  icon:'important_devices', class: '' },
+   // { path: '/inverse', title: 'Recherches inverses',  icon:'call', class: '' },
+    { path: '/reports', title: 'Rapports mensuels',  icon:'assignment', class: '' },
+    { path: '/bot', title: '118712StatBot',  icon:'chat', class: 'active-pro' },
 ];
 
 @Component({
